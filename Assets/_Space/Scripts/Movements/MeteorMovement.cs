@@ -66,10 +66,6 @@ public class MeteorMovement : MonoBehaviour, IMoveable, ISteerable
 
 	public Vector2 SteerDirection { get { return steerDirection; } }
 
-	private Action<Vector2> steering = delegate { };
-
-	public Action<Vector2> Steering { get { return steering; } set { steering = value; } }
-
 	#endregion ISteerable
 
 	private void Awake()

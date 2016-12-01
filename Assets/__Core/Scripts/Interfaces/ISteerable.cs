@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface ISteerable
 {
@@ -8,6 +7,4 @@ public interface ISteerable
 	float SteerSpeed { get; }
 
 	Vector2 SteerDirection { get; }
-
-	Action<Vector2> Steering { get; set; }
 }
