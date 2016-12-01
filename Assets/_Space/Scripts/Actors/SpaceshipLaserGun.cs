@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
 
+[RequireComponent(
+	typeof(AudioSource)
+)]
 public class SpaceshipLaserGun : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject laserPrefab;
+
+	[SerializeField]
+	private AudioSource audio;
 
 	[SerializeField]
 	private float fireRate = 1f;
@@ -13,6 +19,9 @@ public class SpaceshipLaserGun : MonoBehaviour
 	private void Awake()
 	{
 		Debug.Assert(laserPrefab);
+
+		audio = GetComponent<AudioSource>();
+		audio.playOnAwake = false;
 	}
 
 	public void Fire()
@@ -23,6 +32,7 @@ public class SpaceshipLaserGun : MonoBehaviour
 		}
 		@lock = true;
 		InstantiateLaser();
+		audio.Play();
 		Invoke("Unlock", fireRate);
 	}
 
